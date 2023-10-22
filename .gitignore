@@ -12,15 +12,6 @@
 /employee-front/npm-debug.log
 /employee-front/yarn-error.log
 
-# IDEs and editors
-/employee-front/.idea/
-/employee-front/.project
-/employee-front/.classpath
-/employee-front/.c9/
-/employee-front/*.launch
-/employee-front/.settings/
-/employee-front/*.sublime-workspace
-
 # Visual Studio Code
 /employee-front/.vscode/*
 !/employee-front/.vscode/settings.json
