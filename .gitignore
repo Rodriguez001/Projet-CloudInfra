@@ -13,33 +13,33 @@
 /employee-front/yarn-error.log
 
 # Visual Studio Code
-/employee-front/.vscode/*
-!/employee-front/.vscode/settings.json
-!/employee-front/.vscode/tasks.json
-!/employee-front/.vscode/launch.json
-!/employee-front/.vscode/extensions.json
-/employee-front/.history/*
+employee-front/.vscode/*
+!employee-front/.vscode/settings.json
+!employee-front/.vscode/tasks.json
+!employee-front/.vscode/launch.json
+!employee-front/.vscode/extensions.json
+employee-front/.history/*
 
 # Miscellaneous
-/employee-front/.angular/cache
-/employee-front/.sass-cache/
-/employee-front/connect.lock
-/employee-front/coverage
-/employee-front/libpeerconnection.log
-/employee-front/testem.log
-/employee-front/typings
+employee-front/.angular/cache
+employee-front/.sass-cache/
+employee-front/connect.lock
+employee-front/coverage
+employee-front/libpeerconnection.log
+employee-front/testem.log
+employee-front/typings
 
 # System files
-/employee-front/.DS_Store
-/employee-front/Thumbs.db
+employee-front/.DS_Store
+employee-front/Thumbs.db
 
 # employee-app
 
-/employee-app/.vscode/*
-!/employee-app/.vscode/settings.json
-!/employee-app/.vscode/tasks.json
-!/employee-app/.vscode/launch.json
-!/employee-app/.vscode/extensions.json
-/employee-app/.history/*
+employee-app/.vscode/*
+!employee-app/.vscode/settings.json
+!employee-app/.vscode/tasks.json
+!employee-app/.vscode/launch.json
+!employee-app/.vscode/extensions.json
+employee-app/.history/*
 
 
