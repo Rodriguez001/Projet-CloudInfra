@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: employeeConfig
+  namespace: employee-ns
+data:
+  MYSQL_ROOT_PASSWORD: root
+  MYSQL_DATABASE: Employee_db
+  MYSQL_USER: RODRIGUE
+  MYSQL_PASSWORD: password
+  MYSQL_HOST: mysql_svc

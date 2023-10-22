@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sublime-text
+  namespace: employee-ns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sublime-text
+  template:
+    metadata:
+      labels:
+        app: sublime-text
+    spec:
+      containers:
+        - name: sublime-text
+          image: jessfraz/sublime-text-3
+          securityContext:
+            runAsUser: 1000 # Replace with appropriate user ID
+          env:
+            - name: DISPLAY
+              value: :0
+          volumeMounts:
+            - name: x11
+              mountPath: /tmp/.X11-unix
+      volumes:
+        - name: x11
+          hostPath:
+            path: /tmp/.X11-unix # Adjust the path to match your host's X11 socket
