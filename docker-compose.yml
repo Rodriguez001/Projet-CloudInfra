@@ -45,6 +45,8 @@ services:
     build:
       context: employee-front/
       dockerfile: Dockerfile
+    environment:
+      - HOST_IP=$(hostname -I | cut -d' ' -f2)
 
   registry:
     networks:
