@@ -43,7 +43,7 @@ services:
     volumes:
       - frontend_vol:/usr/share/nginx/html
     build:
-      context: .
+      context: employee-ihm/
       dockerfile: Dockerfile
 
   registry:
