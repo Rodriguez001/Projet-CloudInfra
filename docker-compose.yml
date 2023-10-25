@@ -51,7 +51,7 @@ services:
       - employee_net
     container_name: registry
     ports:
-      - "8500:5000"
+      - "30000:5000"
     image: "registry:2"
 
   registry-ui:

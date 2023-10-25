@@ -11,14 +11,17 @@ spec:
     - host: mes-employees.com
       http:
         paths:
-          - path: /list
+          - path: /
             pathType: Prefix
             backend:
               service:
                 name: employee-frontend-nodeport-service
                 port:
                   number: 80
-          - path: /repositories
+    - host: private-dockerhub.com
+      http:
+        paths:
+          - path: /
             pathType: Prefix
             backend:
               service:

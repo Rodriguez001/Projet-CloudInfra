@@ -18,6 +18,52 @@ spec:
           image: joxit/docker-registry-ui
           ports:
             - containerPort: 80
+          env:
+            - name: SINGLE_REGISTRY
+              valueFrom:
+                configMapKeyRef: 
+                  name: employee-config
+                  key: SINGLE_REGISTRY
+            - name: REGISTRY_TITLE
+              valueFrom:
+                configMapKeyRef: 
+                  name: employee-config
+                  key: REGISTRY_TITLE
+            - name: DELETE_IMAGES
+              valueFrom:
+                configMapKeyRef: 
+                  name: employee-config
+                  key: DELETE_IMAGES
+            - name: SHOW_CONTENT_DIGEST
+              valueFrom:
+                configMapKeyRef: 
+                  name: employee-config
+                  key: SHOW_CONTENT_DIGEST
+            - name: NGINX_PROXY_PASS_URL
+              valueFrom:
+                configMapKeyRef: 
+                  name: employee-config
+                  key: NGINX_PROXY_PASS_URL
+            - name: SHOW_CATALOG_NB_TAGS
+              valueFrom:
+                configMapKeyRef: 
+                  name: employee-config
+                  key: SHOW_CATALOG_NB_TAGS
+            - name: CATALOG_ELEMENTS_LIMIT
+              valueFrom:
+                configMapKeyRef: 
+                  name: employee-config
+                  key: CATALOG_ELEMENTS_LIMIT
+            - name: REGISTRY_SECURED
+              valueFrom:
+                configMapKeyRef: 
+                  name: employee-config
+                  key: REGISTRY_SECURED
+            - name: TAGLIST_PAGE_SIZE
+              valueFrom:
+                configMapKeyRef: 
+                  name: employee-config
+                  key: TAGLIST_PAGE_SIZE
           volumeMounts:
           - name: config-volume
             mountPath: /etc/config
