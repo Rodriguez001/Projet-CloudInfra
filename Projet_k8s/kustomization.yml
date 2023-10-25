@@ -1,0 +1,18 @@
+resources:
+  - namespace.yml
+  - xauthority-configmap.yml
+  - employee_configmap.yml
+  - employee-secrets.yml
+  - sublime_deployment.yml
+  - registry-deployment.yml
+  - registry-service.yml
+  - registry-ui-deployement.yml
+  - registry-ui-service.yml
+  - mysql-deployment.yml
+  - mysql-service.yml
+  - employee-api-deployment.yml
+  - employee-api-service.yml
+  - employee-ihm-deployment.yml
+  - employee-ihm-service.yml
+  - ingress-employee.yml
+  

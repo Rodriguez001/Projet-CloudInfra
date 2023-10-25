@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sublime-text
+  name: sublime-text-deployment
   namespace: employee-ns
 spec:
   replicas: 1
@@ -14,17 +14,24 @@ spec:
         app: sublime-text
     spec:
       containers:
-        - name: sublime-text
-          image: jessfraz/sublime-text-3
-          securityContext:
-            runAsUser: 1000 # Replace with appropriate user ID
-          env:
-            - name: DISPLAY
-              value: :0
-          volumeMounts:
-            - name: x11
-              mountPath: /tmp/.X11-unix
+      - name: sublime-text-container
+        image: rodriguez003/sublime-text:1.0
+        env:
+        - name: DISPLAY
+          value: ":0"
+        - name: XAUTHORITY
+          value: /home/sublimeuser/.Xauthority
+        volumeMounts:
+        - name: x11-socket
+          mountPath: /tmp/.X11-unix
+        - name: xauthority
+          mountPath: /home/sublimeuser/.Xauthority
+        securityContext:
+          runAsUser: 1000   
       volumes:
-        - name: x11
-          hostPath:
-            path: /tmp/.X11-unix # Adjust the path to match your host's X11 socket
+      - name: x11-socket
+        hostPath:
+          path: /tmp/.X11-unix
+      - name: xauthority
+        configMap:
+          name: xauthority-configmap

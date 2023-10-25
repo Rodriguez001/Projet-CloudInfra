@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: employee-frontend-deployment
+  namespace: employee-ns
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: employee-frontend
+  template:
+    metadata:
+      labels:
+        app: employee-frontend
+    spec:
+      containers:
+      - name: employee-ihm
+        image: rodriguez003/projet-cloudinfra-employee-frontend:3.0
+        ports:
+        - containerPort: 80
+      restartPolicy: Always 

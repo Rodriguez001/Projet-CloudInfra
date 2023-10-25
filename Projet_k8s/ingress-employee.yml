@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: employee-ingress
+  namespace: employee-ns
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: mes-employees.com
+      http:
+        paths:
+          - path: /list
+            pathType: Prefix
+            backend:
+              service:
+                name: employee-frontend-nodeport-service
+                port:
+                  number: 80
+          - path: /repositories
+            pathType: Prefix
+            backend:
+              service:
+                name: registry-ui-service
+                port:
+                  number: 80

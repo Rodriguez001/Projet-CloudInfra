@@ -1,0 +1,10 @@
+apiVersion: v1
+data:
+  Xauthority: |+
+    machine/unix:0 MIT-MAGIC-COOKIE-1 0123456789abcdef0123456789abcdef0
+
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: xauthority-configmap
+  namespace: employee-ns
