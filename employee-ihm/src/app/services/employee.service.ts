@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class EmployeeService {
-  host_ip: string = "employee-backend-service";
-  baseUrl: string = 'http://' + this.host_ip + ':31000';
+  host_ip: string = window.location.hostname || 'localhost';
+  baseUrl: string = 'http://' + this.host_ip + ':9090';
 
   constructor(private _http: HttpClient) {}
 

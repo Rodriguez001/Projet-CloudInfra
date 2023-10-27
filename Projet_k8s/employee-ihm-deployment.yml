@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: employee-ihm
-        image: rodriguez003/projet-cloudinfra-employee-frontend:4.0
+        image: rodriguez003/projet-cloudinfra-employee-frontend:3.0
         ports:
         - containerPort: 80
       restartPolicy: Always 
