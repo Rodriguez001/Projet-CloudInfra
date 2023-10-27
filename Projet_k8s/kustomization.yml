@@ -8,6 +8,8 @@ resources:
   - registry-service.yml
   - registry-ui-deployement.yml
   - registry-ui-service.yml
+  - pv.yml
+  - pvc.yml
   - mysql-deployment.yml
   - mysql-service.yml
   - employee-api-deployment.yml
