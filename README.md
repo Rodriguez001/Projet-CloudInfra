@@ -141,8 +141,13 @@ Clone the project:
   # 'ctrl+c' to quit
 
   3. Enable the Nginx Ingress Controller add-on:
-    
+    # On minikube on localhost
     minikube addons enable ingress
+
+   # On Google Cloud 
+    kubectl create namespace nginx-ingress
+    helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+    helm install nginx-ingress ingress-nginx/ingress-nginx -n nginx-ingress
    
    # Verify that the Nginx Ingress Controller pods are running:
    kubectl get pods -n kube-system | grep nginx-ingress-controller
@@ -180,17 +185,24 @@ kubectl get svc -n employee-ns
 
 # We use their external ip of these srvices to get in to the app
 - employee-frontend-nodeport-service
-  http://<svc-ip>:30001
- # Or in localhost do this: http://<localhost>:30001  or http://<minikube-ip>:30001 or http://<your-VM-ip>:30001
+  http://svc-external-ip:30001
+ # Or in localhost do this: http://localhost:30001  or http://minikube-ip:30001 or http://your-VM-ip:30001
 
 - registry-ui-service
-  http://<svc-ip>:30000 
- # Or in localhost do this: http://<localhost>:30000  or http://<minikube-ip>:30000 or http://<your-VM-ip>:30000
+     http://svc-external-ip:30000 
+ # Or in localhost do this: http://localhost:30000  or http://minikube-ip:30000 or http://your-VM-ip:30000
 
+  Test On Google Cloud Platform
+  We have to Ensure that your domain name points to the GCP load balancer's IP address. we can do this by configuring DNS records.
+  
+  # Look for the external IP address associated with your Ingress controller's service, typically labeled "EXTERNAL-IP."
+  kubectl get services -n nginx-ingress
 
+  # CLEAN THE ENVIRONMENT
 
-On Google Cloud Platform
+   kubectl delete -k ./
 
+  
 
 
 
