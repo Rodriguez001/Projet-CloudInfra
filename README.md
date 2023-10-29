@@ -116,7 +116,7 @@ Clone the project:
 
   * An installed Minikube or GCP account
 
-  # Installation in local machine or on a virtual machine :
+  # Installation on local machine or on a virtual machine :
 
   curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
   chmod +x minikube
@@ -155,7 +155,7 @@ Clone the project:
   4. We have create an ingress ressource named : employee-ingress
     kubectl get ingress -n employee-ns
 
-  5. Test our deployments
+  5. Test our deployments 
   
   To test your Ingress resource, make sure to edit your local hosts file (/etc/hosts on Linux or macOS, or C:\Windows\System32\drivers\etc\hosts on Windows) to map your Minikube IP to your desired hostname.
 
@@ -175,6 +175,11 @@ Clone the project:
   http://private-dockerhub.com
 
   # Test our private registry:
+
+  # We check the Loadbalancer services deployed to expose our app to get port of the service 'registry-ui-service'
+  # For my own, I've got 30000
+  kubectl get svc -n employee-ns
+
   docker tag registry:2 localhost:30000/registry:2
   docker push localhost:30000/registry:2
 

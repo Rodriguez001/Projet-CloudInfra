@@ -1,2 +1,9 @@
-.git
-node_modules
+**/.git
+**/node_modules/
+**/Readme.md
+**/.vscode
+**/dist
+**/LICENSE
+**/npm-debug.log
+**/coverage
+**/.env
