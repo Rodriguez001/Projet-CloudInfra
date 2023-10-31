@@ -85,11 +85,12 @@ Clone the project:
  # To get the same when using a virtual machine, 
  http://ip-address-VM:81
  # where ip-address-VM is ip of your Virtual machine, and use this command on your VM and check each ip you'll get
- # One ip them is the right one
+ # One of the IP is the right one by running:
  hostname -I
 
  # how to save our images in our private registry, here is an example
  # we'll save the image we builded earlier for the frontend projet-cloudinfra-employee-frontend
+ # first, we should tag an images with a specific prefix : <localhost:30000>
  docker tag projet-cloudinfra-employee-frontend:latest localhost:30000/projet-cloudinfra-employee-frontend:latest
  docker push localhost:30000/projet-cloudinfra-employee-frontend:latest
  
