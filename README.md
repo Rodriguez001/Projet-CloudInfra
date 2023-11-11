@@ -126,7 +126,7 @@ Clone the project:
     docker system prune
     docker rmi -f $(docker images -q) # forbidden if minikube is installed
         
-    # you delete each image 
+# you delete each image 
     docker rmi -f images_name
 
  PART TWO: KUBERNETES DEPLOYMENTS
