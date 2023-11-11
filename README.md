@@ -30,7 +30,7 @@ PART ONE : Docker compose
 
 1. Overview
 
-Mes-employees App is a web application that a crud list of employees of any company. It utilizes a Java API named employee-app as its backend to handle data processing using mysql database for persistence and an Angular frontend named employee-ihm for an interactive user interface. it includes many others features like a docker registry to save our images in private and sublime-text container for editing our project.
+Mes-employees App is a web application that gives a crud list of employees of any company. It utilizes a Java API named employee-app as its backend to handle data processing using mysql database for persistence and an Angular frontend named employee-ihm for an interactive user interface. it includes many others features like a docker registry to save our images in private and sublime-text container for editing our project.
 The aim of this project is to containerize it using docker or kubernetes. But here we'll be doing the both. First of all deployment using docker-compose and in a second hand by kubernetes on minikube or on GCP. 
 So, we have :
 
