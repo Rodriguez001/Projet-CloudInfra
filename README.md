@@ -88,10 +88,12 @@ Clone the project:
         https://hub.docker.com/repository/docker/rodriguez003/sublime-text
 
 7. Running my application
- 
-       docker compose up -d or docker-compose up -d
 
-8. Usage:
+       docker compose up -d
+# or 
+       docker-compose up -d
+
+9. Usage:
 
  After running images, we can access our containers : 
 
