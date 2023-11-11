@@ -115,7 +115,7 @@ Clone the project:
   
    Prerequisites
 
-  * An installed Minikube or GCP account
+  * An installed Minikube or GCP account or any other cloud provider
 
   # Installation on local machine or on a virtual machine :
 
@@ -125,6 +125,8 @@ Clone the project:
   
   # Start Minikube: Open your terminal and start Minikube by running:
    minikube start  
+  
+  # Clone the project and continue here
 
   1. cd Projet-CloudInfra/Projet_k8s/
 
@@ -137,8 +139,9 @@ Clone the project:
   # Or we can apply for each file
   kubectl apply -f filename.yml
 
-  # Watch if every deployment is in ready state, otherwise you should be waiting for it
+  # Watch if every deployment is in ready state, otherwise you should be waiting for it  
   kubectl -n employee-ns get deploy -w  
+  
   # 'ctrl+c' to quit
 
   3. Enable the Nginx Ingress Controller add-on:
@@ -159,15 +162,21 @@ Clone the project:
   5. Test our deployments 
   
   To test your Ingress resource, make sure to edit your local hosts file (/etc/hosts on Linux or macOS, or C:\Windows\System32\drivers\etc\hosts on Windows) to map your Minikube IP to your desired hostname.
-
+  # On your VM terminal
+      ip -f inet addr show enp0s8 | sed -En -e 's/.*inet ([0-9.]+).*/\1/p'
+      
   # To get the ip, either 
    hostname -I 
   # or 
    minikube ip
   
-  # Then, add an entry to your hosts file like this and save it:
-  <ip-address> mes-employees.com
-  <ip-address> private-dockerhub.com
+  # Then, if you're working on localhost, add these entries to your hosts file ( /etc/hosts ) like this and save it:
+  127.0.0.1 mes-employees.com 
+  127.0.0.1 private-dockerhub.com 
+
+  # Else if you're working on a Virtual machinev, add these entries to your hosts file ( /etc/hosts ) like this and save it:
+   <VM-ip-address> mes-employees.com 
+   <VM-ip-address> private-dockerhub.com
 
   # Open your navigator to test our app
   http://mes-employees.com
