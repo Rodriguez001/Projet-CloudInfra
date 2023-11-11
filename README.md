@@ -74,7 +74,7 @@ Clone the project:
    # build images using docker-compose
        docker compose build or docker-compose build
    
-   # save them on dockerhub
+   # save them on dockerhub (optionnal)
        docker login
 
        docker tag images_name dockerhublogin/image_name:tag
