@@ -124,6 +124,19 @@ Clone the project:
     docker rmi -f images_name
 
  PART TWO: KUBERNETES DEPLOYMENTS
+ 
+   Overview: 
+   To deploy our application, some manifest files are setted in a specific folder: Projet_k8s
+   
+    Overview
+    Prerequisites
+    Getting Started
+    Project Structure
+    Configuration
+    Building and Running
+    Docker Compose
+    Usage
+    
   
    Prerequisites
 
