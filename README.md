@@ -3,6 +3,7 @@ Project name: ProjetCloudInfra
 This App is a full-stack web application built with a Java API backend and an Angular frontend. It's designed to list employees of a company.
 
 Table of Contents
+
 Part ONE: using docker compose
 
     Overview
