@@ -4,6 +4,7 @@ This App is a full-stack web application built with a Java API backend and an An
 
 Table of Contents
 Part ONE: using docker compose
+
     Overview
     Prerequisites
     Getting Started
@@ -12,7 +13,17 @@ Part ONE: using docker compose
     Building and Running
     Docker Compose
     Usage
+    
 Part Two: Kubernetes deployements
+
+    Overview
+    Prerequisites
+    Getting Started
+    Project Structure
+    Configuration
+    Building and Running
+    Docker Compose
+    Usage
 
 PART ONE : Docker compose
 
