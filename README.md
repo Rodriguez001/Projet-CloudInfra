@@ -66,9 +66,10 @@ Clone the project:
 4. Configuration:
    
    xhost +
+   
    set env variable DISPLAY to 0 (if you're on a virtual machine), but already set on local host   
 
-5. building images to save them
+6. building images to save them
    
    # build images using docker-compose
    docker compose build or docker-compose build
