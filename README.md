@@ -64,14 +64,15 @@ Clone the project:
     cd Projet-CloudInfra/
 
 4. Configuration:
-
+   
    xhost +
-   set env variable DISPLAY to 0 (if you're on a virtual machine), but already set on local host
+   set env variable DISPLAY to 0 (if you're on a virtual machine), but already set on local host   
 
 5. building images to save them
    
    # build images using docker-compose
    docker compose build or docker-compose build
+   
    # save them on dockerhub
    docker login
    docker tag images_name dockerhublogin/image_name:tag
@@ -84,11 +85,11 @@ Clone the project:
 
     https://hub.docker.com/repository/docker/rodriguez003/sublime-text
 
-6. Running my application
+7. Running my application
  
    docker compose up -d or docker-compose up -d
 
-7. Usage:
+8. Usage:
 
  After running images, we can access our containers : 
 
@@ -128,15 +129,24 @@ Clone the project:
    Overview: 
    To deploy our application, some manifest files are setted in a specific folder: Projet_k8s
    
-    Overview
-    Prerequisites
-    Getting Started
-    Project Structure
-    Configuration
-    Building and Running
-    Docker Compose
-    Usage
-    
+  - namespace.yml
+  - xauthority-configmap.yml
+  - employee_configmap.yml
+  - employee-secrets.yml
+  - sublime_deployment.yml
+  - registry-deployment.yml
+  - registry-service.yml
+  - registry-ui-deployement.yml
+  - registry-ui-service.yml
+  - pv.yml
+  - pvc.yml
+  - mysql-deployment.yml
+  - mysql-service.yml
+  - employee-api-deployment.yml
+  - employee-api-service.yml
+  - employee-ihm-deployment.yml
+  - employee-ihm-service.yml
+  - ingress-employee.yml    
   
    Prerequisites
 
