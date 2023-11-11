@@ -121,7 +121,7 @@ Clone the project:
  # Or you can do this:
  docker exec -d sublime-text /usr/bin/subl
 
- 8. CLEAN THE SYSTEM
+# CLEAN THE SYSTEM
     docker compose down
     docker system prune
     docker rmi -f $(docker images -q) # forbidden if minikube is installed
