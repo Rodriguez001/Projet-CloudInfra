@@ -34,12 +34,12 @@ Mes-employees App is a web application that a crud list of employees of any comp
 The aim of this project is to containerize it using docker or kubernetes. But here we'll be doing the both. First of all deployment using docker-compose and in a second hand by kubernetes on minikube or on GCP. 
 So, we have :
 
- - backend: employee-app.....................................container name: employee-api
- - frontend: employee-ihm....................................container name: employee-ihm
- - mysql : image used here mysql:5.7.........................container name: mysqldb
- - registry: image used registry:2...........................container name: registry
- - registry IHM: image used joxit/docker-registry-ui.........container name: registry-ui
- - sublime-text: image used jessfraz/sublime-text-3..........container name: sublime-text
+ - backend: employee-app.....................................container name: employee-api (It's our middleware)
+ - frontend: employee-ihm....................................container name: employee-ihm (used to display informations about employees)
+ - mysql : image used here mysql:5.7.........................container name: mysqldb 
+ - registry: image used registry:2...........................container name: registry (used to save our images for privacy and security)
+ - registry IHM: image used joxit/docker-registry-ui.........container name: registry-ui (used to display the images we saved in registry)
+ - sublime-text: image used jessfraz/sublime-text-3..........container name: sublime-text (used to edit our application)
 
 2. Prerequisites
 
@@ -66,7 +66,7 @@ Clone the project:
 4. Configuration:
    
    xhost +
-   
+
    set env variable DISPLAY to 0 (if you're on a virtual machine), but already set on local host   
 
 6. building images to save them
@@ -76,6 +76,7 @@ Clone the project:
    
    # save them on dockerhub
    docker login
+
    docker tag images_name dockerhublogin/image_name:tag
 
     Here are my images : 
@@ -98,9 +99,11 @@ Clone the project:
  http://localhost:81
  # To get the same when using a virtual machine, 
  http://ip-address-VM:81
- # where ip-address-VM is ip of your Virtual machine, and use this command on your VM and check each ip you'll get
+ # where ip-address-VM is ip of your Virtual machine, and use this command on your VM console and check each ip you'll get
  # One of the IP is the right one by running:
  hostname -I
+ # Or 
+ ip -f inet addr show enp0s8 | sed -En -e 's/.*inet ([0-9.]+).*/\1/p' 
 
  # how to save our images in our private registry, here is an example
  # we'll save the image we builded earlier for the frontend projet-cloudinfra-employee-frontend
@@ -164,16 +167,16 @@ Clone the project:
   
   # Clone the project and continue here
 
-  1. cd Projet-CloudInfra/Projet_k8s/
+  1. cd Projet-CloudInfra/
 
   # we have some yaml files there to configure our application on a cluster
 
   2. We apply all the files at once
 
-  kubectl apply -k ./
+  kubectl apply -k Projet_k8s/
 
   # Or we can apply for each file
-  kubectl apply -f filename.yml
+  kubectl apply -f Projet_k8s/filename.yml
 
   # Watch if every deployment is in ready state, otherwise you should be waiting for it  
   kubectl -n employee-ns get deploy -w  
@@ -231,17 +234,27 @@ Clone the project:
 
 6. You can also test the app without configuring the hosts file
 
-# We check the Loadbalancer services deployed to expose our app
+# We check the NodePort services deployed to expose our app
 kubectl get svc -n employee-ns
 
-# We use their external ip and ports of these srvices to get in to the app
+# We use their external ip and ports of these services to get in to the app
 - employee-frontend-nodeport-service
-  http://svc-external-ip:external-port
  # For my own in localhost do this: http://localhost:30001  or http://minikube-ip:30001 or http://your-VM-ip:30001
 
 - registry-ui-service
-     http://svc-external-ip:30000 
  # For my own in localhost do this: http://localhost:30000  or http://minikube-ip:30000 or http://your-VM-ip:30000
+
+# But on GCP, apply this to transform our NodePort services into LoadBalancer services
+ kubectl apply -f Services_For_GCP/
+
+# We check the Loadbalancer services deployed to expose our app
+  kubectl get svc -n employee-ns
+
+- employee-frontend-nodeport-service
+ # http://svc-external-ip:external-port
+
+- registry-ui-service
+ # http://svc-external-ip:external-port
 
   Test On Google Cloud Platform
   We have to Ensure that your domain name points to the GCP load balancer's IP address. we can do this by configuring DNS records.
@@ -251,7 +264,10 @@ kubectl get svc -n employee-ns
 
   # CLEAN THE ENVIRONMENT
 
-   kubectl delete -k ./
+   kubectl delete -k Projet_k8s/
+   kubectl delete -k Service_For_GCP/
+   docker system prune or crictl system prune
+
 
   
 
